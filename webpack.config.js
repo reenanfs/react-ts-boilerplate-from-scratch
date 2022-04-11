@@ -15,10 +15,20 @@ var tsOptions = {
   },
 };
 
+const isProd = process.env.NODE_ENV === 'production';
+var sourcemap;
+
+if (isProd) {
+  sourcemap = 'source-map';
+} else {
+  sourcemap = 'eval-source-map';
+}
+
 module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'build'),
+    clean: true,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -60,6 +70,14 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
       },
+      {
+        test: /\.(csv|tsv)$/i,
+        use: ['csv-loader'],
+      },
+      {
+        test: /\.xml$/i,
+        use: ['xml-loader'],
+      },
     ],
   },
   plugins: [
@@ -80,5 +98,5 @@ module.exports = {
     },
     port: 8080,
   },
-  devtool: 'eval-source-map',
+  devtool: sourcemap,
 };
