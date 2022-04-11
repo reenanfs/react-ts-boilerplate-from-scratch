@@ -97,6 +97,12 @@ module.exports = {
       directory: path.join(__dirname, 'public'),
     },
     port: 8080,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
+    },
   },
   devtool: sourcemap,
 };
