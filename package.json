@@ -5,7 +5,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --mode development",
-    "test": "jest --watchAll --no-cache"
+    "test": "jest --watchAll --no-cache",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
