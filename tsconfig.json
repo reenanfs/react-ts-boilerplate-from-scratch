@@ -17,7 +17,8 @@
     "isolatedModules": false,
     "baseUrl": "./src",
     "paths": {
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"]
     },
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
