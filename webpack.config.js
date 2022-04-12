@@ -28,12 +28,14 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
     clean: true,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
       '@components': path.resolve(__dirname, 'src/components'),
+      '@pages': path.resolve(__dirname, 'src/pages'),
     },
   },
   module: {
@@ -103,6 +105,7 @@ module.exports = {
         warnings: false,
       },
     },
+    historyApiFallback: true,
   },
   devtool: sourcemap,
 };
